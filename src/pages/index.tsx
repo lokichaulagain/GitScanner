@@ -1,5 +1,5 @@
+import Link from "next/link";
 import React from "react";
-import { FaBeer } from "react-icons/fa";
 
 function Index() {
   return (
@@ -14,11 +14,13 @@ function Index() {
           className="search_input rounded-1 p-2 shadow-none "
           placeholder="Github Username"
         />
-        <button
-          type="button"
-          className="custom_button rounded-1 px-5">
-          Generate
-        </button>
+        <Link href={"/main"}>
+          <button
+            type="button"
+            className="custom_button rounded-1 px-5">
+            Generate
+          </button>
+        </Link>
       </div>
     </div>
   );
