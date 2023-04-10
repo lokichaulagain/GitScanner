@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import Image from "next/image";
 import demo from "../assets/falconBanner.png";
@@ -8,6 +8,12 @@ import Bio from "../components/Bio";
 import GeneralInfo from "../components/GeneralInfo";
 
 export default function Main() {
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    const storedData = localStorage.getItem("user");
+    // const userInfo = JSON.parse(storedData);
+  }, []);
+
   return (
     <div className="m-4 ">
       <div className="d-flex align-items-center justify-content-between">
@@ -31,8 +37,8 @@ export default function Main() {
           />
         </div>
         <div className="data_content_container">
-          <h3>Lokendra Chaulagain</h3>
-          <h5>lokendra-loki</h5>
+          <h3>{user.name}</h3>
+          <h5>{user.login}</h5>
 
           <div className="d-flex gap-5 mt-4">
             <CountDataItem
